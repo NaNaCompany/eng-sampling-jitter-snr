@@ -1,0 +1,45 @@
+{
+  "id": "E143",
+  "value": 64.03640263283769,
+  "method": "Independent Python Decimal evaluation at 90 decimal digits; mathematical constants supplied to at least 85 digits. Expected numbers rounded once to IEEE-754 binary64. No JS imports.",
+  "cases": [
+    {
+      "name": "tenfold frequency reduces SNR by 20 dB",
+      "values": {
+        "f": 1000000000.0
+      },
+      "expected": 44.0364026328377
+    },
+    {
+      "name": "tenfold jitter reduces SNR by 20 dB",
+      "values": {
+        "jitter": 1e-11
+      },
+      "expected": 44.0364026328377
+    },
+    {
+      "name": "small-phase endpoint",
+      "values": {
+        "f": 1,
+        "jitter": 0.015915494309189534
+      },
+      "expected": 20.0
+    },
+    {
+      "name": "large phase jitter outside approximation",
+      "values": {
+        "f": 100000000.0,
+        "jitter": 1e-08
+      },
+      "throws": true
+    },
+    {
+      "name": "tiny independent jitter still gives finite dB",
+      "values": {
+        "f": 1e-200,
+        "jitter": 1e-100
+      },
+      "expected": 5984.036402632838
+    }
+  ]
+}
